@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.User.Crud.Infra", "Cor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{13B2DA52-C70F-4540-BBEC-A6C2345F0674}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.User.Crud.Tests", "Core.User.Crud.Tests", "{7D34B148-82B8-4917-8FAB-59FC9863C91E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.User.Crud.Tests", "Core.User.Crud.Tests\Core.User.Crud.Tests.csproj", "{915A3EC8-F510-4451-85C4-896BC422A999}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,5 +49,9 @@ Global
 		{9CC26CEF-7C53-4438-A02B-A1A99011CEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CC26CEF-7C53-4438-A02B-A1A99011CEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CC26CEF-7C53-4438-A02B-A1A99011CEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915A3EC8-F510-4451-85C4-896BC422A999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915A3EC8-F510-4451-85C4-896BC422A999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915A3EC8-F510-4451-85C4-896BC422A999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915A3EC8-F510-4451-85C4-896BC422A999}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
