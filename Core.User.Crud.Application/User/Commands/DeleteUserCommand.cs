@@ -1,8 +1,8 @@
-namespace Core.User.Crud.Domain.commands;
+namespace   Core.User.Crud.Application.User.Commands;
 
 public class DeleteUserCommand
 {
-    Guid Id { get; set; }
+    public Guid Id { get; set; }
     
     public DeleteUserCommand WithId(Guid id)
     {

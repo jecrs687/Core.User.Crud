@@ -1,26 +1,30 @@
 using Core.User.Crud.Domain.Entities;
+using Core.User.Crud.Domain.Models;
 
 namespace Core.User.Crud.Domain.Factories;
 
 public class UserFactory
 {
-    public static UserEntity Create(string firstName, string lastName, DateTime dateOfBirth)
+    public static UserModel Create(string? firstName, string? lastName, DateTime dateOfBirth, string? email)
     {
-        return new UserEntity
+        if(firstName == null || lastName == null || email == null || dateOfBirth == null)
+            throw new ArgumentNullException();
+        return new UserModel
         {
             Id = Guid.NewGuid(),
+            Email = email,
             FirstName = firstName,
             LastName = lastName,
-            DateOfBirth = dateOfBirth
+            DateOfBirth = dateOfBirth 
         };
     }
     
-    public static List<UserEntity> CreateList(List<string> firstNames, List<string> lastNames, List<DateTime> dateOfBirths)
+    public static List<UserModel> CreateList(List<string> firstNames, List<string> lastNames, List<DateTime> dateOfBirths)
     {
-        var users = new List<UserEntity>();
+        var users = new List<UserModel>();
         for (var i = 0; i < firstNames.Count; i++)
         {
-            users.Add(new UserEntity
+            users.Add(new UserModel
             {
                 Id = Guid.NewGuid(),
                 FirstName = firstNames[i],

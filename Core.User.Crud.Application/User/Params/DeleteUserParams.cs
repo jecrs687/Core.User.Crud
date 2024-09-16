@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Core.User.Crud.Domain.Requests.User;
+namespace Core.User.Crud.Domain.Params;
 
 public class DeleteUserParams
 {

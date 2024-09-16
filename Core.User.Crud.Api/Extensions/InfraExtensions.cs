@@ -7,7 +7,7 @@ public static class InfraExtensions
 {
     public static IServiceCollection AddInfra(this IServiceCollection services)
     {
-        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddSingleton<IUserRepository, UserRepository>();
         return services;
     }
 }

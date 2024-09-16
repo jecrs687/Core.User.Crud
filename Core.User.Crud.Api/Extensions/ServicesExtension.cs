@@ -9,9 +9,9 @@ public static class ServicesExtension
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped<IGetUserService, GetUserService>();
-        // services.AddScoped<ICreateUserService, CreateUserService>();
-        // services.AddScoped<IUpdateUserService, UpdateUserService>();
-        // services.AddScoped<IDeleteUserService, DeleteUserService>();
+        services.AddScoped<ICreateUserService, CreateUserService>();
+        services.AddScoped<IUpdateUserService, UpdateUserService>();
+        services.AddScoped<IDeleteUserService, DeleteUserService>();
         return services;
     }
     

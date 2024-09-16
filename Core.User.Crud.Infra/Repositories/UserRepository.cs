@@ -1,40 +1,66 @@
 using Core.User.Crud.Domain.Entities;
+using Core.User.Crud.Domain.Exceptions.User;
 using Core.User.Crud.Domain.Factories;
+using Core.User.Crud.Domain.Models;
 using Core.User.Crud.Domain.Repositories;
 
 namespace Core.User.Crud.Infra.Repositories;
 
 public class UserRepository : IUserRepository
 {
-    private List<UserEntity> _users = new();
+     private List<UserModel> _users = new();
     
     public UserRepository()
     {
-        _users.Add(UserFactory.Create("John", "Doe", new DateTime(1990, 1, 1)));
+        _users.Add(UserFactory.Create("John", "Doe", new DateTime(1990, 1, 1), "JohnDoe@gmail.com"));
     }
 
-    public Task<UserEntity> GetAsync(Guid id)
+    public Task<UserModel?> GetAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var user = _users.Find(x => x.Id == id);
+        if(user==null)
+            return Task.FromResult<UserModel?>(null);
+        return Task.FromResult(user);
     }
 
-    public Task<List<UserEntity>> GetAllAsync()
+    public Task<List<UserModel>> GetAllAsync(int page, int pageSize)
     {
-        throw new NotImplementedException();
+        return Task.FromResult(_users.Skip(page * pageSize).Take(pageSize).ToList());
     }
 
-    public Task<UserEntity> CreateAsync(UserEntity user)
+    public Task<UserModel> CreateAsync(UserEntity user)
     {
-        throw new NotImplementedException();
+        var userOnDb = _users.Find(x => x.Email == user.Email);
+        if (userOnDb != null)
+            throw new UserAlreadyExistsException(user.Email);
+        
+        var userToSave = UserFactory.Create(user.FirstName, user.LastName, (DateTime)user.DateOfBirth, user.Email);
+        _users.Add(userToSave);
+        
+        return Task.FromResult(userToSave);
     }
 
-    public Task<UserEntity> UpdateAsync(UserEntity user)
+    public Task<UserModel> UpdateAsync(UserEntity user)
     {
-        throw new NotImplementedException();
+        var userToUpdate = _users.Find(x => x.Id == user.Id);
+        if(userToUpdate == null)
+            return Task.FromResult<UserModel>(null);
+        _users.Remove(userToUpdate);
+        userToUpdate.FirstName = user.FirstName ?? userToUpdate.FirstName;
+        userToUpdate.LastName = user.LastName ?? userToUpdate.LastName;
+        userToUpdate.Email = user.Email ?? userToUpdate.Email;
+        userToUpdate.DateOfBirth = user.DateOfBirth ?? userToUpdate.DateOfBirth;
+        _users.Add(userToUpdate);
+        return Task.FromResult(userToUpdate);
+
     }
 
-    public Task<UserEntity> DeleteAsync(Guid id)
+    public Task<UserModel> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var userToDelete = _users.Find(x => x.Id == id);
+        if(userToDelete == null)
+            return Task.FromResult<UserModel>(null);
+        _users.Remove(userToDelete);
+        return Task.FromResult(userToDelete);
     }
 }

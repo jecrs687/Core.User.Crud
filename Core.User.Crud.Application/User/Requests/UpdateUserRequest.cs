@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Core.User.Crud.Application.User.Requests;
 
 public class UpdateUserRequest
 {
     [StringLength(maximumLength: 128 , MinimumLength = 3)]
-    public required string Name { get; set; }
+    public required string FirstName { get; set; }
 
     [StringLength(maximumLength: 128 , MinimumLength = 3)]
     public required string LastName { get; set; }

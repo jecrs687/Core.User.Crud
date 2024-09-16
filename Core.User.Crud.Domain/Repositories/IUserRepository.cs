@@ -1,13 +1,14 @@
 using Core.User.Crud.Domain.Entities;
+using Core.User.Crud.Domain.Models;
 
 namespace Core.User.Crud.Domain.Repositories;
 
 public interface IUserRepository
 {
-    Task<UserEntity> GetAsync(Guid id);
-    Task<List<UserEntity>> GetAllAsync();
-    Task<UserEntity> CreateAsync(UserEntity user);
-    Task<UserEntity> UpdateAsync(UserEntity user);
-    Task<UserEntity> DeleteAsync(Guid id);
+    Task<UserModel?>? GetAsync(Guid id);
+    Task<List<UserModel>> GetAllAsync(int page, int pageSize);
+    Task<UserModel> CreateAsync(UserEntity user);
+    Task<UserModel> UpdateAsync(UserEntity user);
+    Task<UserModel> DeleteAsync(Guid id);
     
 }

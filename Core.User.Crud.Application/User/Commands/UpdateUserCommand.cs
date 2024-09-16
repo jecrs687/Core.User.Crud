@@ -1,31 +1,34 @@
+using Core.User.Crud.Application.User.Requests;
 using Core.User.Crud.Domain.Entities;
 
-namespace Core.User.Crud.Domain.commands;
+namespace Core.User.Crud.Application.User.Commands;
 
 public class UpdateUserCommand: UserEntity
-{   
-    
-    public UpdateUserCommand WithFirstName(string firstName)
+{  
+    public Guid Id { get; set; }
+    public UpdateUserRequest Request { get; set; }
+
+    public UserEntity ToEntity()
     {
-        FirstName = firstName;
+        return new UserEntity()
+        {
+            Id = Id,
+            DateOfBirth = Request.DateOfBirth,
+            LastName = Request.LastName,
+            Email = Request.Email,
+            FirstName = Request.FirstName
+        };
+    }
+
+    public UpdateUserCommand WithId(Guid id)
+    {
+        Id = id;
         return this;
     }
     
-    public UpdateUserCommand WithLastName(string lastName)
+    public UpdateUserCommand WithRequest(UpdateUserRequest name)
     {
-        LastName = lastName;
-        return this;
-    }
-    
-    public UpdateUserCommand WithDateOfBirth(DateTime dateOfBirth)
-    {
-        DateOfBirth = dateOfBirth;
-        return this;
-    }
-    
-    public UpdateUserCommand WithEmail(string email)
-    {
-        Email = email;
+        Request = name;
         return this;
     }
 }
