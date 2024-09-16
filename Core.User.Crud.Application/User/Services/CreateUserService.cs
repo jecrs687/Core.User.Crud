@@ -15,7 +15,7 @@ public class CreateUserService(IUserRepository userRepository, UserSettings user
     {
         var user = command.ToEntity();
         if(command.ToEntity().CalculateAge() < userSettings.MinAge)
-            return new BirthDateInvalidUnder18Exception();
+            throw new BirthDateInvalidUnder18Exception();
         try
         {
             var userDto = await userRepository.CreateAsync(user);
@@ -24,7 +24,7 @@ public class CreateUserService(IUserRepository userRepository, UserSettings user
         catch (Exception e)
         {
             if(e is UserAlreadyExistsException)
-                return new UserAlreadyExistsException(e.Message);
+                throw new UserAlreadyExistsException(e.Message);
             return new BadRequestObjectResult(e.Message);
         }
     }

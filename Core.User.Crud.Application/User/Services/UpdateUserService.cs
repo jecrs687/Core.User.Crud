@@ -13,10 +13,10 @@ public class UpdateUserService(IUserRepository userRepository, UserSettings user
     public async Task<IActionResult> ProcessAsync(UpdateUserCommand command)
     {
         if ( command.ToEntity().CalculateAge() < userSettings.MinAge)
-            return new BirthDateInvalidUnder18Exception();
+            throw new BirthDateInvalidUnder18Exception();
         var response = await userRepository.UpdateAsync(command.ToEntity());
         if(response == null)
-            return new UserNotFoundException(command.Id);
+            throw new UserNotFoundException(command.Id);
 
 
         return new OkObjectResult((UserEntity)response);

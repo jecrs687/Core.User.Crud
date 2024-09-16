@@ -13,7 +13,7 @@ public class GetUserService(IUserRepository userRepository) : IGetUserService
     {
         var user = await userRepository.GetAsync(command.Id);
         if (user == null)
-            return new UserNotFoundException(command.Id);
+            throw new UserNotFoundException(command.Id);
 
         return new OkObjectResult((UserEntity)user);
     }

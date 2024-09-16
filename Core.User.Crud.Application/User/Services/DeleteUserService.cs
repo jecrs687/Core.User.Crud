@@ -13,7 +13,7 @@ public class DeleteUserService(IUserRepository userRepository) : IDeleteUserServ
         var response = await userRepository.DeleteAsync(command.Id);
         
         if(response == null)
-            return new UserNotFoundException(command.Id);
+            throw new UserNotFoundException(command.Id);
 
         return new OkObjectResult(response);
     }

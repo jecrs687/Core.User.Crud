@@ -34,7 +34,7 @@ public class UserRepository : IUserRepository
         if (userOnDb != null)
             throw new UserAlreadyExistsException(user.Email);
         
-        var userToSave = UserFactory.Create(user.FirstName, user.LastName, (DateTime)user.DateOfBirth, user.Email);
+        var userToSave = UserFactory.Create(user.FirstName, user.LastName, (DateTime)user.DateOfBirth, user.Email?.ToLower());
         _users.Add(userToSave);
         
         return Task.FromResult(userToSave);
@@ -48,7 +48,7 @@ public class UserRepository : IUserRepository
         _users.Remove(userToUpdate);
         userToUpdate.FirstName = user.FirstName ?? userToUpdate.FirstName;
         userToUpdate.LastName = user.LastName ?? userToUpdate.LastName;
-        userToUpdate.Email = user.Email ?? userToUpdate.Email;
+        userToUpdate.Email = user.Email?.ToLower() ?? userToUpdate.Email;
         userToUpdate.DateOfBirth = user.DateOfBirth ?? userToUpdate.DateOfBirth;
         _users.Add(userToUpdate);
         return Task.FromResult(userToUpdate);
