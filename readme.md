@@ -117,3 +117,14 @@ The Infra (Infrastructure) layer deals with external or internal components of t
 
 Current subfolders include:
 - **Repositories**: Contains the classes for managing database interactions.
+
+### Tests
+The test folder contains tests for each layer of the application, ensuring that the application behaves as expected. Each layer has its own set of tests to validate the functionality of the respective components.
+Although the only layer implemented in this project is the `Application`, additional layers can be added as needed.
+
+
+## Packages and Dependencies
+- **Database**: Local Storage 
+- **Testing**: xUnit and FluentAssertions
+- **Health Checks**: ASP.NET Core Health Checks and HealthChecks.UI.Client
+- **Validation**: System.ComponentModel.DataAnnotations (for requests validations)
