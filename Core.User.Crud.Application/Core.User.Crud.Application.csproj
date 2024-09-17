@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core.User.Crud.Domain\Core.User.Crud.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="User\Requests\User\**" />
+      <EmbeddedResource Remove="User\Requests\Params\**" />
+      <EmbeddedResource Remove="User\Commands\User\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="User\Requests\User\**" />
+      <None Remove="User\Requests\Params\**" />
+      <None Remove="User\Commands\User\**" />
+    </ItemGroup>
+
+
+</Project>

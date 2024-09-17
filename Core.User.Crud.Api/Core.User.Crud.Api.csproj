@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.0-rc.1.24452.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+      <Content Remove="Extensions\HealthCheck\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="WeatherForecast.cs" />
+      <Compile Remove="Extensions\HealthCheck\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Extensions\HealthCheck\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Extensions\HealthCheck\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core.User.Crud.Application\Core.User.Crud.Application.csproj" />
+      <ProjectReference Include="..\Core.User.Crud.Domain\Core.User.Crud.Domain.csproj" />
+      <ProjectReference Include="..\Core.User.Crud.Infra\Core.User.Crud.Infra.csproj" />
+    </ItemGroup>
+
+</Project>

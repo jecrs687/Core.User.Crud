@@ -1,0 +1,6 @@
+﻿services:
+  core.user.crud.api:
+    image: core.user.crud.api
+    build:
+      context: .
+      dockerfile: Core.User.Crud.Api/Dockerfile

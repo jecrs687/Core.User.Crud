@@ -1,0 +1,20 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/Users/emanuel/.nuget/packages/microsoft.aspnetcore.antiforgery/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0b7074f0_002Dec66_002D40c6_002D9d77_002D6b913cdcef0f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateUserServiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::915A3EC8-F510-4451-85C4-896BC422A999::net8.0::Core.User.Crud.Tests.Application.User.Services.CreateUserServiceTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40b9cb31_002D9f3f_002D48a2_002D8e01_002Df3045948709f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShouldReturnUserAlreadyExistsExceptionWhenUserAlreadyExists" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::915A3EC8-F510-4451-85C4-896BC422A999::net8.0::Core.User.Crud.Tests.Application.User.Services.CreateUserServiceTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::915A3EC8-F510-4451-85C4-896BC422A999::net8.0::Core.User.Crud.Tests.Application.User.Services.GetUserServiceTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::915A3EC8-F510-4451-85C4-896BC422A999::net8.0::Core.User.Crud.Tests.Application.User.Services.UpdateUserServiceTest.ShouldUpdateUserWhenUserExists&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::915A3EC8-F510-4451-85C4-896BC422A999::net8.0::Core.User.Crud.Tests.Application.User.Services.UpdateUserServiceTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6855abf0_002D99ee_002D4810_002D9379_002D906b40a39331/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
